@@ -1,6 +1,7 @@
 package com.bilgeadam.mapper;
 
 import com.bilgeadam.dto.request.UserResgisterRequestDto;
+import com.bilgeadam.dto.response.LoginResponseDto;
 import com.bilgeadam.repository.entity.Movie;
 import com.bilgeadam.repository.entity.User;
 import org.mapstruct.Mapper;
@@ -13,6 +14,8 @@ public interface IUserMapper {
     IUserMapper INSTANCE= Mappers.getMapper(IUserMapper.class);
 
     User toUser(final UserResgisterRequestDto dto);
+
+    LoginResponseDto toLoginResponseDto(final User user);
 
 
 }
