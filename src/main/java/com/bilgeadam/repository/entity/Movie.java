@@ -29,6 +29,6 @@ public class Movie {
     private String url;
     @ElementCollection
     private List<Long> genres;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Long> comments;
 }

@@ -36,7 +36,4 @@ public String summary;
 public  int updated;
 public  _links _links;
 
-
-
-
 }

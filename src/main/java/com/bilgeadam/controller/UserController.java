@@ -5,6 +5,7 @@ import com.bilgeadam.dto.request.LoginRequestDto;
 import com.bilgeadam.dto.request.UserResgisterRequestDto;
 import com.bilgeadam.dto.response.LoginResponseDto;
 import com.bilgeadam.repository.IUserRepository;
+import com.bilgeadam.repository.entity.Movie;
 import com.bilgeadam.repository.entity.User;
 import com.bilgeadam.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -99,4 +100,7 @@ public class UserController {
     public    ResponseEntity <List<User>> passwordLongerThan3(int value){
         return  ResponseEntity.ok( userService.passwordLongerThan3(value));
     }
+
+
+
 }

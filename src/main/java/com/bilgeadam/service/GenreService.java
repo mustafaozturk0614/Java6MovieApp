@@ -13,7 +13,6 @@ import java.util.Optional;
 public class GenreService implements IServiceCrud<Genre> {
 
     private final IGenreRepository genreRepository;
-
     @Override
     public Genre save(Genre genre) {
         return genreRepository.save(genre);
@@ -46,7 +45,8 @@ public class GenreService implements IServiceCrud<Genre> {
         return genreRepository.findById(id);
     }
 
-    public List<Long> createGenresWithNames(List<String> genres) {
+
+    public List<Long> createGenresWithNames(List<String> genres) { //Drama Anime Action
         List<Long> genreList=new ArrayList<>();
         for (String name:genres){
             Optional<Genre> genre=genreRepository.findOptionalByName(name);

@@ -38,9 +38,9 @@ public class DataImpl  implements ApplicationRunner {
     private final MovieCommentService movieCommentService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-    getAllMovies();
-    createUser();
-    setMovieCommentsByMovieID();
+//    getAllMovies();
+//    createUser();
+//    setMovieCommentsByMovieID();
     }
 
 
@@ -95,7 +95,6 @@ public class DataImpl  implements ApplicationRunner {
     }
 
     public void createUser(){
-
         User user = User.builder().email("mert@hotmail.com").name("Mert").
                 surName("Kaya").password("123").phone("123")
                 .favGenres(genreService.createGenresWithNames(List.of("Drama", "Science-Fiction", "Horror","Documentry")))
@@ -107,7 +106,6 @@ public class DataImpl  implements ApplicationRunner {
                 .favMovies(List.of(8l, 3L, 17L, 18L, 9L, 85L, 78L, 127L, 1L, 120L, 85L))
                 .surName("Ozturk").password("123").phone("123")
                 .build();
-
         List<MovieComment> movieComments1=List.of(
                 MovieComment.builder().content("iyi").date(LocalDate.now().minusYears(1)).userId(2L).movieId(78L).build(),
                 MovieComment.builder().content("iyi").date(LocalDate.now().minusMonths(3)).userId(2L).movieId(120L).build(),
@@ -186,14 +184,14 @@ public class DataImpl  implements ApplicationRunner {
 
     }
 
+
     public void setMovieCommentsByMovieID(){
         movieCommentService.findAll().stream().forEach(x->{
-         Movie movie=   movieService.findById(x.getMovieId());
+         Movie movie=   movieService.findById(x.getMovieId()).get();
          movie.getComments().add(x.getId());
             movieService.save(movie);
         });
-
-
     }
+
 
 }
